@@ -1,0 +1,236 @@
+/* Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 999;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+
+}
+
+.Big_css {
+    width: 300px;
+}
+
+/* Sidebar styling */
+.sidebar {
+    /* width: 100%; */
+    background-color: #3147c6;
+    color: #fff;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    transition: width 0.3s;
+    z-index: 1000;
+}
+
+.sidebar.collapsed  {
+    z-index: 100;
+    width: 70px;
+
+    display: flex;
+
+
+}
+
+.Logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 5px;
+    cursor: pointer;
+}
+.sidebar.collapsed .Logo{
+    display: flex;
+    /* align-items:center ; */
+    /* justify-content: center; */
+    width: 45px;
+    height: 45px;
+
+
+}
+.sidebar.collapsed .Logo:hover{
+    /* box-shadow: #73799b; */
+    /* border-color: #fff; */
+
+    cursor: pointer;
+     color: rgba(218, 198, 198, 0.5); 
+    width: 38px;
+    height: 38px;
+    border-radius: 5px;
+
+    
+    
+
+}
+
+.logo_image {
+    width: 40px;
+    height: 40px;
+    /* margin-right: px; */
+    border-radius: 20%;
+    position: relative;
+    /* left: 10px; */
+}
+
+.sidebar.collapsed .logo_image {
+    width: 35px;
+    height: 35px;
+    /* margin-left: -10px; */
+    display: flex;
+    
+
+}
+
+.logo-title {
+    font-size: 18px;
+    color: #fff;
+}
+
+/* .sidebar-toggle{
+    display: none;
+} */
+.sidebar-toggle {
+    background-color: #3147c6;
+    color: #fff;
+    border: 1px solid #cac3c3;
+    border-radius: 3px;
+    cursor: pointer;
+    display: flex;
+    margin-right: -10px;
+    visibility: hidden;
+
+}
+
+/* .sidebar.collapsed .sidebar-toggle{
+    visibility: hidden ;
+
+
+}
+.sidebar.collapsed .Logo:hover .sidebar-toggle{
+    visibility: visible;
+} */
+
+
+
+
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 0;
+}
+.sidebar ul li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+}
+.sidebar.collapsed  li,  .line{
+    visibility: visible;
+    opacity: 1;
+    display: block;
+    z-index: 10000000;
+    width: 30px;
+    height: 30px;
+} 
+
+.sidebar ul li a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    /* gap: 5px; */
+    margin-left: -20px; 
+}
+
+.sidebar ul li:hover {
+    background-color: #4f5acc;
+    border-radius: 5px;
+    /* transition: background-color 0.3s; */
+}
+
+.sidebar.collapsed .users {
+    width: 18px;
+    height: 18px;
+    /* margin: 5px; */
+    visibility: visible;
+    opacity: 1;
+    display: block;
+
+}
+.sidebar.collapsed ul{
+    visibility: visible;
+    opacity: 1;
+    display: inline-block;
+
+}
+
+.line {
+    width: 18px;
+    height: 18px;
+    /* margin: 5px; */
+}
+
+.content {
+    margin-left: 250px;
+    padding: 20px;
+    transition: filter 0.s;
+}
+
+.overlay~.content {
+    filter: blur(5px);
+}
+
+/* Responsive styling */
+@media (max-width: 766px) {
+    .sidebar {
+        width: 100%;
+    }
+
+    .content {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .Big_css {
+        display: none;
+    }
+}
+
+/* Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Hiralash uchun yarim shaffof fon */
+    opacity: 1;
+    visibility: visible;
+    z-index: 998;
+    /* Sidebar ustida ko'rinishi uchun z-index */
+    transition: opacity 0.3s ease;
+}
+
+
+
+
+
+
+
