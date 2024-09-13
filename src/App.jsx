@@ -3,7 +3,7 @@ import './Container/Container.css'
 import './App.css'
 import List from './List/List'
 import SadeBar from './Components/Sidebar'
-import Table from '../list/src/Table'
+import Table from './assets/src/Table'
 
 function App() {
 
