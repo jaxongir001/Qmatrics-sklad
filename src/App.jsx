@@ -1,22 +1,25 @@
-
 import './Container/Container.css'
 import './App.css'
-import List from './List/List'
 import SadeBar from './Components/Sidebar'
-import Table from './assets/src/Table'
+
+import List from './List/List'
+import { Route, Routes } from 'react-router-dom'
+import Dashboard from './Detail/Detail'
+import { MainLayout } from './Main.layout'
+// import Table from './assets/src/Table'
 
 function App() {
 
 
   return (
     <>
-    <div className='bigCont'>
-      <SadeBar className='sidebar' />
-      <List className='list' />
-
-
-    </div>
-    <Table/>
+      <Routes>
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<List />} />
+          <Route path='/detail' element={<Dashboard />} />
+        </Route>
+      </Routes>
+      {/* <Table/> */}
     </>
   )
 }

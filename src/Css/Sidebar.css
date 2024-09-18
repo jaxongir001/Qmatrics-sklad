@@ -15,18 +15,16 @@
 .overlay.active {
     opacity: 1;
     visibility: visible;
-
 }
 
+/* Big_css */
 .Big_css {
     width: 300px;
-    /* font-size: 12px; */
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 /* Sidebar styling */
 .sidebar {
-    /* width: 100%; */
     background-color: #3147c6;
     color: #fff;
     padding: 20px;
@@ -41,7 +39,6 @@
     z-index: 100;
     width: 70px;
     height: 100%;
-    display: flex;
 }
 
 .Logo {
@@ -54,41 +51,25 @@
 
 .sidebar.collapsed .Logo {
     display: flex;
-    /* align-items:center ; */
-    /* justify-content: center; */
     width: 45px;
     height: 45px;
-
-
 }
 
 .sidebar.collapsed .Logo:hover {
-    /* box-shadow: #73799b; */
-    /* border-color: #fff; */
     cursor: pointer;
     color: rgba(218, 198, 198, 0.5);
-    width: 38px;
-    height: 38px;
-    border-radius: 5px;
-
 }
 
 .logo_image {
     width: 40px;
     height: 40px;
-    /* margin-right: px; */
     border-radius: 20%;
     position: relative;
-    /* left: 10px; */
 }
 
 .sidebar.collapsed .logo_image {
     width: 35px;
     height: 35px;
-    /* margin-left: -10px; */
-    display: flex;
-
-
 }
 
 .logo-title {
@@ -96,7 +77,7 @@
     color: #fff;
 }
 
-
+/* Sidebar toggle */
 .sidebar-toggle {
     background-color: #3147c6;
     color: #fff;
@@ -106,119 +87,86 @@
     display: flex;
     margin-right: -10px;
     visibility: hidden;
-
 }
 
 .sidebar ul {
-    
-    
+    width: 150px;
     list-style-type: none;
-    padding: 0;
-    margin-top: 0;
-
-}
-.sidebar.collapsed ul {
-    position: relative;
-    right: 2px;
-    /* width: 200px; */
-    height: 180px;
-    /* z-index: 100000; */
     display: flex;
-    justify-content: center;
-    align-items: start;
-    flex-direction:column;
-    left: 2px;
-    visibility: visible;
-
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
 }
-
 
 .sidebar ul li {
+    width: 200px;
+    height: 40px;
+    padding: 4px;
     display: flex;
     align-items: center;
-    /* gap: 15px; */
+    justify-content: start;
+    transition: background-color 0.3s ease, border-radius 0.3s ease;
+}
 
-    
-}
-/* Sidebar uchun yangi CSS qoidalari */
-.sidebar.collapsed ul li {
-    /* z-index: 100000; */
-    /* margin-left: -50px; */
-    width: 100%;
-    /* flex-direction: row; */
-    /* Elementlarni qator qilib ko'rsatish */
-    justify-content: center;
-    /* Ikonlarni va matnni markazga joylashtirish */
-    align-items: center;
-    /* Vertikal ravishda markazlash */
-    display: flex;
-    /* display: none; */
-    
-    
-    
-}
 .sidebar ul li:hover {
     background-color: #6b76e5;
     border-radius: 5px;
-    transition: background-color 0.8s;
 }
 
 .sidebar ul li a {
     color: #fff;
     text-decoration: none;
     font-size: 18px;
-    display: flex;
-    align-items: center;
+    transition: opacity 0.3s ease, transform 0.3s ease;
     padding: 10px;
-    margin-right: 40px;
 }
 
+.sidebar ul li a:hover {
+    opacity: 0.8;
+    transform: translateX(5px);
+}
 
+/* Collapsed sidebar */
+.sidebar.collapsed ul li .icon:hover + a,
+.sidebar.collapsed ul li a:hover {
+    display: block;
+    color: #f3f3f3;
+    background-color: #6b76e5;
+    position: relative;
+    right: -30px;
+    transition: color 0.3s ease, right 0.3s ease;
+    border-radius: 5px;
+}
+
+.sidebar.collapsed ul {
+    width: 150px;
+    list-style-type: none;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.sidebar.collapsed ul li {
+    width: 150px;
+}
 
 .sidebar.collapsed ul li a {
-    display: flex;
-    /* Ko'rsatish uchun flex */
-    align-items: center;
-    /* Vertikal markazlash */
-    color: #fff;
-    /* Matn rangini oq qilamiz */
-    /* visibility: hidden; */
+    display: none;
 }
 
-
-
-/* Ikonlar uchun styling */
-.icon {
-  
-    
-    font-size: 23px;
-  
-    transition: color 0.3s;
-   
+.sidebar.collapsed ul li:hover {
+    background: none;
 }
 
-
-.line {
-    width: 18px;
-    height: 18px;
-    /* margin: 5px; */
-}
-.sidebar.collapsed .line.icon {
-    position: absolute;
-    left: -40px;
-
-}
-.sidebar.collapsed .users.icon {
-    position: absolute;
-    left: -40px;
-
+.sidebar.collapsed .icon {
+    cursor: pointer;
 }
 
-
+/* Content */
 .content {
     margin-left: 250px;
     padding: 20px;
-    transition: filter 0.s;
+    transition: filter 0.3s ease;
 }
 
 .overlay~.content {
@@ -241,6 +189,49 @@
         display: none;
     }
 }
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .sidebar.collapsed {
+        width: 60px;
+    }
+
+    .content {
+        margin-left: 200px;
+    }
+
+    .sidebar.collapsed ~ .content {
+        margin-left: 60px;
+    }
+}
+
+@media (max-width: 576px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        bottom: auto;
+        position: relative;
+        z-index: 1000;
+    }
+
+    .sidebar.collapsed {
+        width: 100%;
+        height: auto;
+    }
+
+    .sidebar-toggle {
+        display: block;
+        margin-left: 10px;
+    }
+
+    .content {
+        margin-left: 0;
+        padding-top: 20px;
+    }
+}
+
 
 /* Overlay */
 .overlay {
@@ -250,16 +241,8 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    /* Hiralash uchun yarim shaffof fon */
     opacity: 1;
     visibility: visible;
     z-index: 998;
-    /* Sidebar ustida ko'rinishi uchun z-index */
     transition: opacity 0.3s ease;
 }
-
-
-
-
-
-

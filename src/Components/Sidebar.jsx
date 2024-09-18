@@ -4,8 +4,10 @@ import { HiOutlineChevronRight, HiOutlineChevronLeft } from 'react-icons/hi';
 import logo from "../assets/logo.Webp";
 import '../Css/Sidebar.css';
 
+
 const Sidebar = () => {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  // Set initial state to true to keep sidebar collapsed by default
+  const [isCollapsed, setIsCollapsed] = useState(true);
 
   const handleToggle = () => {
     setIsCollapsed(!isCollapsed);
@@ -13,7 +15,7 @@ const Sidebar = () => {
 
   return (
     <>
-      {/* Overlay faqat sidebar ochilganda paydo bo'ladi */}
+      {/* Overlay appears only when the sidebar is open */}
       {!isCollapsed && <div className="overlay" onClick={handleToggle}></div>}
       <div className='Big_css'>
         <div className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
@@ -27,7 +29,7 @@ const Sidebar = () => {
 
           <ul>
             <li>
-              {/* Ikonlar sidebar yopilganda ham ko'rinadi */}
+              {/* Icons are always visible */}
               <HiOutlineUsers className="users icon" />
               <a className='user' href="#">Сотрудники</a>
             </li>
@@ -38,7 +40,9 @@ const Sidebar = () => {
           </ul>
 
         </div>
+
       </div>
+      
     </>
   );
 };
